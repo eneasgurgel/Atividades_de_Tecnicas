@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta charset="utf-8">
+        <title>Exercício 25/08</title>
+
+        <style>
+            body {
+                background-color: bisque;
+            }
+        </style>
+
+        <script>
+            function BttProxima(){
+                form2 = document.getElementById("form2");
+                label = document.getElementById("lblIdade");
+                label.innerHTML = "Idade: ";
+                botaoIdade = "<input name='idade' type='number'>"; 
+                form2.innerHTML += botaoIdade;
+                form2.innerHTML += '<br>';
+                botaoFim = '<input type="button" value="Fim" onclick="BttFim()">';
+                form2.innerHTML += '<br>';
+                form2.innerHTML += botaoFim;
+            } 
+
+            function BttFim(){
+                f1 = document.getElementById("form1");
+                f2 = document.getElementById("form2");
+                nome = document.getElementsByName('nome')[0];
+                tipo = document.getElementsByName('tipo')[0];
+                idade = document.getElementsByName('idade')[0];
+                
+                let elemento = {
+                    'Nome' : nome.value,
+                    'Tipo' : tipo.value,
+                    'Idade' : idade.value
+                }
+
+                console.log(elemento);
+
+                      
+            }
+                
+
+                
+                //console.log('Tipo: ' + tipo.value);
+                //console.log('Idade :' + idade.value);
+            
+
+            
+
+        </script>
+        
+    </head>
+    
+    <body>
+        <div>
+            <form id="form1" action="">
+                
+                <label>Nome: </label>
+                <input name="nome" type="text">
+                <br>
+
+                <br>
+                <label>Tipo: </label>
+                <input name="tipo" type="text">
+                <br>
+
+                <br>
+                <input type="button" value="Próxima" onclick="BttProxima()">
+            </form>
+
+            <form id="form2" action="">
+                <label id="lblIdade"></label>
+                
+            </form>
+        
+        </div>
+    </body>
+
+</html>
