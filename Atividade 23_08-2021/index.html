@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta charset="utf-8">
+        <title>Exercício 23/08</title>
+
+        <style>
+            body {
+                background-color: cornflowerblue;
+            }
+            div {
+                background-color: rgb(25, 209, 154); 
+            }
+        </style>
+        <script>
+            function criaDivs() {
+                corpo = document.body;
+                linha1 = '<div class="divs"> Testando alterações [1] </div>';
+                linha2 = '<div class="divs"> Testando alterações [2] </div>';
+                corpo.innerHTML += linha1;
+                corpo.innerHTML += linha2;
+            }
+
+            function aplicar() {
+                cor = document.getElementsByName("cor")[0];
+                margem = document.getElementsByName("margem")[0];
+                divs = document.getElementsByClassName("divs");
+                criaDivs();
+                for (i = 0; i < divs.length; i++){
+                    divs[i].style = "background-color: " + cor.value;
+                    divs[i].style = "margin: " + margem.value + "px";
+                }
+                    //Exercício: Faça um formulário que contenha dois campos, cor e margem, além de um botão. Quando o usuário clicar no botão, 
+                    //sua página deve aplicar a cor e a margem para todos os elementos 'div' de sua página. Para que o usuário perceba as alterações na tela, 
+                    //crie ainda duas ou mais divs com algum conteúdo.
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="divs">
+            <label>Cor: </label>
+            <input name="cor" type="text">
+            <br>
+            <br>
+            <label>Margem: </label>
+            <input name="margem" type="text">px
+            <br>
+            <br>
+            <input type="button" value="Aplicar Configurações" onclick="aplicar()">
+        </div>
+        
+
+    </body>
+
+
+</html>
+
+
+
