@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="utf-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+  <title>Instafeed</title>
+
+  <script>
+    var c1 = 32;
+    function curtir(){
+      texto = document.getElementById('curtidas1');
+      texto.innerHTML = (c1+1) + " Curtidas";
+    }
+  </script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active bg-dark" aria-current="page" href="#">Home <span
+            class="badge bg-danger bg-secondary">27</span></a>
+          <button type="button" class="btn btn-secondary position-absolute top-5 end-0">Log Out</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="d-grid gap-2 position-relative position-absolute top-0 start-50 translate-middle">
+      <div id="carouselExampleControls" class="carousel slide  " data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="Imagem2.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="Imagem1.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="Imagem1.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+
+        <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+        <button id='bttcurtir1' type="button" class="btn btn-primary d-inline-block" onclick="curtir()">Curtir</button>
+        <div id="curtidas1" class="d-inline-block">32 Curtidas</div>
+        <div><strong>2 Comentários</strong>
+          <div>- Muito Massa</div>
+          <div>- Incrivel!</div>
+        </div>
+
+        <form class="row g-3">
+          <div class="col-auto">
+            <input type="text" class="form-control" id="newcomentario" placeholder="Novo Comentário">
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-light mb-3">Enviar</button>
+          </div>
+        </form>
+      </div>
+      <div id="carouselExampleControls" class="carousel slide  d-inline-block" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="Imagem2.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="Imagem1.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="Imagem1.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <div style="margin-right: 50%;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+        <button type="button" class="btn btn-primary d-inline-block">Curtir</button>
+        <div class="d-inline-block">32 Curtidas</div>
+        <div><strong>2 Comentários</strong>
+          <div>- Muito Massa</div>
+          <div>- Incrivel!</div>
+        </div>
+        <form class="row g-3">
+          <div class="col-auto">
+            <input type="text" class="form-control" id="newcomentario" placeholder="Novo Comentário">
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-light mb-3">Enviar</button>
+          </div>
+        </form>
+      </div>
+      <div id="carouselExampleControls" class="carousel slide  " data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="Imagem2.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="Imagem1.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="Imagem2.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <div style="margin-right: 50%;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+        <button type="button" class="btn btn-primary d-inline-block">Curtir</button>
+        <div class="d-inline-block">32 Curtidas</div>
+        <div><strong>2 Comentários</strong>
+          <div>- Muito Massa</div>
+          <div>- Incrivel!</div>
+        </div>
+        <form class="row g-3">
+          <div class="col-auto">
+            <input type="text" class="form-control" id="newcomentario" placeholder="Novo Comentário">
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-light mb-3">Enviar</button>
+          </div>
+        </form>
+      </div>
+  </div>
+
+
+</body>
+
+</html>

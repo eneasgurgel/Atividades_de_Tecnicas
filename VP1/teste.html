@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta charset="utf-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+        <title>Instafeed</title>
+
+        <script>
+        var curtidas = [32, 45, 12];
+        var qtdcomentarios = [2, 3, 1]; 
+        function curtir1(x){
+            botao = document.getElementsByName('bttcurtir')[x];
+            if (botao.innerHTML == 'Curtir'){
+                botao.innerHTML = 'Descurtir';
+                texto = document.getElementsByName('curtidasn')[x];
+                curtidas[x] = curtidas[x] + 1;
+                texto.innerHTML = (curtidas[x]) + " Curtidas";
+            }else {
+                botao.innerHTML = 'Curtir';
+                texto = document.getElementsByName('curtidasn')[x];
+                curtidas[x] = curtidas[x] - 1;
+                texto.innerHTML = (curtidas[x]) + " Curtidas";    
+            }  
+        }
+
+        function comentar(x){
+            comentario = document.getElementsByName('cmm')[x];
+            if (comentario.value != ''){
+                divcmm = document.getElementsByName("comentarios")[x];
+                qtdcmm = document.getElementsByName("qtdCmm")[x];
+                qtdcomentarios[x] += 1;
+                qtdcmm.innerHTML = "<strong>" + qtdcomentarios[x] + " Comentários</strong>"
+                divcmm.innerHTML +=  "<div>- " + comentario.value +  "</div>";
+                comentario.value = "" 
+
+            }
+        }
+
+        </script>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+            <div class="container-fluid">
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link active bg-dark" aria-current="page" href="#">Home <span
+                    class="badge bg-danger bg-secondary">27</span></a>
+                  <button type="button" class="btn btn-secondary position-absolute top-5 end-0">Log Out</button>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+                <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                <button name='bttcurtir' type="button" class="btn btn-primary d-inline-block" onclick="curtir1(0)">Curtir</button>
+                <div name="curtidasn" class="d-inline-block">32 Curtidas</div>
+                <div name="comentarios">
+                    <div name='qtdCmm'><strong>2 Comentário(s)</strong></div>
+                    <div>- Muito Massa</div>
+                    <div>- Incrivel!</div>
+                </div>
+        
+                <form class="row g-3">
+                    <div class="col-auto">
+                    <input name="cmm" type="text" class="form-control" id="newcomentario" placeholder="Novo Comentário">
+                    </div>
+                    <div class="col-auto">
+                    <button type="button" class="btn btn-light mb-3" onclick="comentar(0)">Enviar</button>
+                    </div>
+                </form>
+
+                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed porttitor arcu.</div>
+                <button name='bttcurtir' type="button" class="btn btn-primary d-inline-block" onclick="curtir1(1)">Curtir</button>
+                <div name="curtidasn" class="d-inline-block">45 Curtidas</div>
+                <div name="comentarios">
+                    <div name='qtdCmm'><strong>3 Comentário(s)</strong></div>
+                    <div>- Showww</div>
+                    <div>- Não entendi</div>
+                    <div>- Pode traduzir?</div>
+                </div>
+        
+                <form class="row g-3">
+                    <div class="col-auto">
+                    <input name="cmm" type="text" class="form-control" id="newcomentario" placeholder="Novo Comentário">
+                    </div>
+                    <div class="col-auto">
+                    <button type="button" class="btn btn-light mb-3" onclick="comentar(1)">Enviar</button>
+                    </div>
+                </form>
+
+                <div>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.</div>
+                <button name='bttcurtir' type="button" class="btn btn-primary d-inline-block" onclick="curtir1(2)">Curtir</button>
+                <div name="curtidasn" class="d-inline-block">12 Curtidas</div>
+                <div name="comentarios">
+                    <div name='qtdCmm'><strong>1 Comentário(s)</strong></div>
+                    <div>- Agora entendi!</div>
+                </div>
+        
+                <form class="row g-3">
+                    <div class="col-auto">
+                    <input name="cmm" type="text" class="form-control" id="newcomentario" placeholder="Novo Comentário">
+                    </div>
+                    <div class="col-auto">
+                    <button type="button" class="btn btn-light mb-3" onclick="comentar(2)">Enviar</button>
+                    </div>
+                </form>
+
+    </body>
+</html>
