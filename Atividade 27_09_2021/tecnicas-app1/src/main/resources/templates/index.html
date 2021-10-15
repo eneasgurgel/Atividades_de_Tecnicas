@@ -1,0 +1,38 @@
+<html>
+
+    <script>
+        function enviar(){
+            Pessoa = {
+                nome: document.getElementById("nome").value,
+                idade: document.getElementById("idade").value,
+                trabalha: document.getElementById("trabalha").value
+            };
+            var string = JSON.stringify(Pessoa);
+            var resultado = document.getElementById("resultado");
+            resultado.innerHTML = string;
+
+        }
+    </script>
+
+    <body>
+        <form>
+            <label>Nome</label>
+            <input type="text" id="nome">
+
+            <label>Idade</label>
+            <input type="number" id="idade">
+
+            <label>Trabalha</label>
+            <input type="checkbox" id="trabalha">
+
+            <input type="button" onclick="enviar()" value="Enviar">
+        </form>
+
+        <div id="resultado">
+
+        </div>
+
+
+    </body>
+
+</html>
