@@ -14,7 +14,7 @@ public class Cliente {
 
     private String nome;
     private String cpf;
-    private double gastoTotal;
+    private double gastoTotal = 0;
 
     public Integer getId() {
         return id;

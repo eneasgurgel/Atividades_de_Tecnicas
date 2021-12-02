@@ -39,12 +39,31 @@ public class ProdutoController {
     @ResponseBody
     @RequestMapping(value = "produto/{id}", method = RequestMethod.PUT)
     public Produto update(@PathVariable Integer id, @RequestBody Produto produto){
-        return service.update(produto);
+        produto.setId(id);
+        return service.update(id, produto);
     }
 
     @ResponseBody
     @RequestMapping(value = "produto/{id}", method = RequestMethod.DELETE)
     public void remove(@PathVariable Integer id){
         service.remove(id);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "produto/codigoDeBarra/{codigoDeBarra}", method = RequestMethod.GET)
+    public List<Produto> findAllByCodigoDeBarra(@PathVariable String codigoDeBarra){
+        return service.findAllByCodigoDeBarra(codigoDeBarra);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "produto/categoria/{categoria}", method = RequestMethod.GET)
+    public List<Produto> findAllByCategoria(@PathVariable String categoria){
+        return service.findAllByCategoria(categoria);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "produto/faltando", method = RequestMethod.GET)
+    public List<Produto> findAllByQuantidadeEquals0(){
+        return service.findAllByQuantidadeEquals0();
     }
 }

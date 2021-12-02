@@ -40,6 +40,7 @@ public class ClienteController {
     @ResponseBody
     @RequestMapping(value = "cliente/{id}", method = RequestMethod.PUT)
     public Cliente update(@PathVariable Integer id, @RequestBody Cliente cliente){
+        cliente.setId(id);
         return service.update(cliente);
     }
 

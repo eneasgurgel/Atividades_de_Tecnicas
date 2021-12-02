@@ -29,7 +29,7 @@ public class ProdutoService {
         return produto;
     }
 
-    public Produto update(Produto produto){
+    public Produto update(Integer id, Produto produto){
         produtoRepository.save(produto);
         return produto;
     }
@@ -38,5 +38,15 @@ public class ProdutoService {
         produtoRepository.deleteById(id);
     }
 
+    public List<Produto> findAllByCodigoDeBarra(String codigoDeBarra){
+        return produtoRepository.findAllByCodigoDeBarra(codigoDeBarra);
+    }
 
+    public List<Produto> findAllByCategoria(String categoria){
+        return produtoRepository.findAllByCategoria(categoria);
+    }
+
+    public List<Produto> findAllByQuantidadeEquals0(){
+        return produtoRepository.findAllByQuantidade(0);
+    }
 }

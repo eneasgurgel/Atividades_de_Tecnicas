@@ -15,7 +15,7 @@ public class Produto {
     private String marca;
     private int quantidade;
     private double preco;
-    private String categora;
+    private String categoria;
     private String codigoDeBarra;
 
     public Integer getId() {
@@ -58,12 +58,12 @@ public class Produto {
         this.preco = preco;
     }
 
-    public String getCategora() {
-        return categora;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setCategora(String categora) {
-        this.categora = categora;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public String getCodigoDeBarra() {

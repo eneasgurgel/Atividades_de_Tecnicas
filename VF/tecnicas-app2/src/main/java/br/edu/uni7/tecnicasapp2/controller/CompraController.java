@@ -39,6 +39,7 @@ public class CompraController {
     @ResponseBody
     @RequestMapping(value = "compra/{id}", method = RequestMethod.PUT)
     public Compra update(@PathVariable Integer id, @RequestBody Compra compra){
+        compra.setId(id);
         return service.update(compra);
     }
 
@@ -46,5 +47,11 @@ public class CompraController {
     @RequestMapping(value = "compra/{id}", method = RequestMethod.DELETE)
     public void remove(@PathVariable Integer id){
         service.remove(id);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "compra/cpf/{cpfCliente}", method = RequestMethod.GET)
+    public List<Compra> findById(@PathVariable String cpfCliente){
+        return service.findAllByCpfCliente(cpfCliente);
     }
 }
