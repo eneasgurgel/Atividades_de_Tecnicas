@@ -2,6 +2,7 @@ package br.edu.uni7.tecnicasapp2.service;
 
 import br.edu.uni7.tecnicasapp2.exception.ClienteDesconhecido;
 import br.edu.uni7.tecnicasapp2.exception.EstoqueInsuficienteException;
+import br.edu.uni7.tecnicasapp2.exception.ProdutoDesconhecidoException;
 import br.edu.uni7.tecnicasapp2.model.Cliente;
 import br.edu.uni7.tecnicasapp2.model.Compra;
 import br.edu.uni7.tecnicasapp2.model.Produto;
@@ -42,21 +43,26 @@ public class CompraService {
             throw new ClienteDesconhecido();
         }
         List<Produto> produtos = compra.getProdutos();
+
         if (produtos != null) {
             for (Produto produto : produtos){
                 Produto produtoDB = produtoRepository.findById(produto.getId()).get();
-                if  (produtoDB.getQuantidade() < produto.getQuantidade()){
-                    throw new EstoqueInsuficienteException();
+                if (produtoDB == null){
+                    throw new ProdutoDesconhecidoException();
                 }else{
-                    valorTotal = valorTotal + (produtoDB.getPreco() * produto.getQuantidade());
-                    produtoDB.setQuantidade(produtoDB.getQuantidade() - produto.getQuantidade());
+                    if (produtoDB.getQuantidade() < produto.getQuantidade()){
+                        throw new EstoqueInsuficienteException();
+                    }else{
+                        valorTotal = valorTotal + (produtoDB.getPreco() * produto.getQuantidade());
+                        produtoDB.setQuantidade(produtoDB.getQuantidade() - produto.getQuantidade());
+                    }
                 }
+
             }
         }
         compra.setValor(valorTotal);
         clienteBD.setGastoTotal(clienteBD.getGastoTotal() + valorTotal);
         return compraRepository.save(compra);
-
     }
 
     public Compra update(Compra compra) {
