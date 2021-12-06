@@ -5,9 +5,11 @@ import br.edu.uni7.tecnicasapp2.exception.EstoqueInsuficienteException;
 import br.edu.uni7.tecnicasapp2.exception.ProdutoDesconhecidoException;
 import br.edu.uni7.tecnicasapp2.model.Cliente;
 import br.edu.uni7.tecnicasapp2.model.Compra;
+import br.edu.uni7.tecnicasapp2.model.NotaFiscal;
 import br.edu.uni7.tecnicasapp2.model.Produto;
 import br.edu.uni7.tecnicasapp2.repository.ClienteRepository;
 import br.edu.uni7.tecnicasapp2.repository.CompraRepository;
+import br.edu.uni7.tecnicasapp2.repository.NotaFiscalRepository;
 import br.edu.uni7.tecnicasapp2.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,12 +22,14 @@ public class CompraService {
     private final CompraRepository compraRepository;
     private final ProdutoRepository produtoRepository;
     private final ClienteRepository clienteRepository;
+    private final NotaFiscalRepository notaFiscalRepository;
 
     @Autowired
-    public  CompraService(CompraRepository compraRepository, ProdutoRepository produtoRepository, ClienteRepository clienteRepository){
+    public CompraService(CompraRepository compraRepository, ProdutoRepository produtoRepository, ClienteRepository clienteRepository, NotaFiscalRepository notaFiscalRepository){
         this.compraRepository = compraRepository;
         this.produtoRepository = produtoRepository;
         this.clienteRepository = clienteRepository;
+        this.notaFiscalRepository = notaFiscalRepository;
     }
 
     public List<Compra> list() {
@@ -57,11 +61,16 @@ public class CompraService {
                         produtoDB.setQuantidade(produtoDB.getQuantidade() - produto.getQuantidade());
                     }
                 }
-
             }
         }
         compra.setValor(valorTotal);
         clienteBD.setGastoTotal(clienteBD.getGastoTotal() + valorTotal);
+
+        NotaFiscal notaFiscal = new NotaFiscal();
+        notaFiscal.setValorTotal(valorTotal);
+        notaFiscal.setCpfDoCliente(clienteBD.getCpf());
+        notaFiscalRepository.save(notaFiscal);
+
         return compraRepository.save(compra);
     }
 
@@ -76,5 +85,9 @@ public class CompraService {
 
     public List<Compra> findAllByCpfCliente(String cpfCliente){
         return compraRepository.findAllByCpfCliente(cpfCliente);
+    }
+
+    public Compra findByNotaFiscal(NotaFiscal notaFiscal){
+        return compraRepository.findByNotaFiscal(notaFiscal);
     }
 }

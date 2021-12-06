@@ -1,6 +1,7 @@
 package br.edu.uni7.tecnicasapp2.controller;
 
 import br.edu.uni7.tecnicasapp2.model.Compra;
+import br.edu.uni7.tecnicasapp2.model.NotaFiscal;
 import br.edu.uni7.tecnicasapp2.service.CompraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,7 +39,7 @@ public class CompraController {
 
     @ResponseBody
     @RequestMapping(value = "compra/{id}", method = RequestMethod.PUT)
-    public Compra update(@PathVariable Integer id, @RequestBody Compra compra){
+    public Compra update(@PathVariable String id, @RequestBody Compra compra){
         compra.setId(id);
         return service.update(compra);
     }
@@ -53,5 +54,11 @@ public class CompraController {
     @RequestMapping(value = "compra/cpf/{cpfCliente}", method = RequestMethod.GET)
     public List<Compra> findById(@PathVariable String cpfCliente){
         return service.findAllByCpfCliente(cpfCliente);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "compra/consulta", method = RequestMethod.GET)
+    public Compra findByNotaFiscal(@RequestBody NotaFiscal notaFiscal){
+        return service.findByNotaFiscal(notaFiscal);
     }
 }

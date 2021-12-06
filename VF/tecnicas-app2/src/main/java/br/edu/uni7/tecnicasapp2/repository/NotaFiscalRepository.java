@@ -9,8 +9,4 @@ import java.util.List;
 @Repository
 public interface NotaFiscalRepository extends MongoRepository<NotaFiscal, String> {
 
-    List<NotaFiscal> findAllByCnpjEmitente(String cnpj);
-
-    List<NotaFiscal> findAllByCpfDoCliente(String cpf);
-
 }

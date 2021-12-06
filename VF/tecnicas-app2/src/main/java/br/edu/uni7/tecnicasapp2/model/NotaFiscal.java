@@ -9,7 +9,6 @@ public class NotaFiscal {
     @Id
     private String id;
     private Double valorTotal;
-    private String cnpjEmitente;
     private String cpfDoCliente;
 
     public String getId() {
@@ -26,14 +25,6 @@ public class NotaFiscal {
 
     public void setValorTotal(Double valorTotal) {
         this.valorTotal = valorTotal;
-    }
-
-    public String getCnpjEmitente() {
-        return cnpjEmitente;
-    }
-
-    public void setCnpjEmitente(String cnpjEmitente) {
-        this.cnpjEmitente = cnpjEmitente;
     }
 
     public String getCpfDoCliente() {

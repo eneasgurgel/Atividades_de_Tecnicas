@@ -38,8 +38,8 @@ public class ProdutoService {
         produtoRepository.deleteById(id);
     }
 
-    public List<Produto> findAllByCodigoDeBarra(String codigoDeBarra){
-        return produtoRepository.findAllByCodigoDeBarra(codigoDeBarra);
+    public Produto findByCodigoDeBarra(String codigoDeBarra){
+        return produtoRepository.findByCodigoDeBarra(codigoDeBarra);
     }
 
     public List<Produto> findAllByCategoria(String categoria){

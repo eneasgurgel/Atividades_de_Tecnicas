@@ -50,9 +50,9 @@ public class ProdutoController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "produto/codigoDeBarra/{codigoDeBarra}", method = RequestMethod.GET)
-    public List<Produto> findAllByCodigoDeBarra(@PathVariable String codigoDeBarra){
-        return service.findAllByCodigoDeBarra(codigoDeBarra);
+    @RequestMapping(value = "produto/consulta/{codigoDeBarra}", method = RequestMethod.GET)
+    public double findAllByCodigoDeBarra(@PathVariable String codigoDeBarra){
+        return service.findByCodigoDeBarra(codigoDeBarra).getPreco();
     }
 
     @ResponseBody

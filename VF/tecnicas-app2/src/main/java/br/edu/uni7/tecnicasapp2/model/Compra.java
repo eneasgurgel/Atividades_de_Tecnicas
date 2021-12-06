@@ -1,27 +1,29 @@
 package br.edu.uni7.tecnicasapp2.model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
+@Document
 public class Compra {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private String id;
 
     @OneToMany
     private List<Produto> produtos;
 
     private double valor;
     private String cpfCliente;
-    private String notaFiscal;
+    private NotaFiscal notaFiscal;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -49,11 +51,11 @@ public class Compra {
         this.cpfCliente = cpfCliente;
     }
 
-    public String getNotaFiscal() {
+    public NotaFiscal getNotaFiscal() {
         return notaFiscal;
     }
 
-    public void setNotaFiscal(String notaFiscal) {
+    public void setNotaFiscal(NotaFiscal notaFiscal) {
         this.notaFiscal = notaFiscal;
     }
 }
