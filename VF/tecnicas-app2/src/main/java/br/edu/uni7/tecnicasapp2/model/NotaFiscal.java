@@ -1,21 +1,24 @@
 package br.edu.uni7.tecnicasapp2.model;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
+
+import java.util.UUID;
 
 @Document
 public class NotaFiscal {
 
-    @Id
-    private String id;
+    @MongoId
+    private UUID id = UUID.randomUUID();
+
     private Double valorTotal;
     private String cpfDoCliente;
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

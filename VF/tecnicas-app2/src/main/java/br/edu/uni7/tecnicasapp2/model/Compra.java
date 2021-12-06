@@ -1,15 +1,16 @@
 package br.edu.uni7.tecnicasapp2.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import javax.persistence.*;
 import java.util.List;
 
+
 @Document
 public class Compra {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @MongoId
     private String id;
 
     @OneToMany
